@@ -1,0 +1,58 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Rezultat pretrage</h4><br>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Naziv kompanije</th>
+        <th>Vrsta Paketa</th>
+        <th>Naziv Paketa</th>
+        <th>Datum sklapanja ugovora</th>
+        <th>Datum isticanja ugovora</th>
+        <th>Link kompanije</th>
+
+
+    </thead>
+
+    <tbody>
+           <div id="ugovori-ajax">
+                <div class="col-md-10">
+
+      {% for partner in partneri %}
+
+    <form action="{{BASE}}pretraga-partnera/{{partner.ugovori_id}}" method="post">
+        <h1>{{partner.link_kopmanije}}</h1>
+         <tr>
+            <td><input type="hidden" name="id" value="{{partner.ugovori_id}}"></td>
+            <td><button id="btn-show" type="submit">{{partner.naziv_kompanije}}</button></td>  
+            <td>{{partner.vrsta_ugovora}}</td>  
+            <td>{{partner.naziv_paketa}}</td>  
+            <td>{{partner.datum_sklapanja_ugovora| date("d/m/Y - H:i:s") }}</td>
+            <td>{{partner.datum_isticanja_ugovora| date("d/m/Y - H:i:s") }}</td>  
+            <td><a href="{{partner.link_kompanije}}">{{partner.link_kompanije}}</a></td>
+
+
+        </tr>
+    </form>
+
+
+        {% endfor %}
+
+    </div>
+</div>
+
+    </tbody>
+
+</table>
+
+
+<script>
+
+
+</script>
+
+
+{% endblock %}

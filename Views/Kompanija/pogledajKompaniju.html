@@ -1,0 +1,39 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+<form action="{{BASE}}izmeni-kompaniju/{{kompanija.kompanija_id}}" method="post"> 
+    <h4 align="center">Podaci o kompaniji</h4><br><br>
+        <div class="container">
+            <div class="col-md-10 mx-auto row">
+
+                <div class="col-md-7 float-left">
+
+                    <h6>Naziv Kompanije: {{kompanija.naziv_kompanije}}</h6>
+                    <h6>Grad u kom se nalazi kompanija: {{kompanija.grad}}</h6>
+                    <h6>Postanski broj: {{kompanija.postanski_broj}}</h6>
+                    <h6>Zemlja: {{kompanija.zemlja}}</h6>
+                    <h6>Ziro racun: {{kompanija.ziro_racun}}</h6>
+                    <h6>Telefon: {{kompanija.kontakt_telefon}}</h6>
+                    <h6>Kontakt osoba: {{kompanija.kontakt_osoba}}</h6>
+                    <h6>Link Kompanije: <a href="{{kompanija.link_kompanije}}">{{kompanija.link_kompanije}}</a></h6>
+
+                </div>
+                <div class="col-md-5 float-right row">
+                    <img src="{{kompanija.logo}}" id="logo-komp" alt="logo">
+                </div>
+
+            </div>
+
+            {% if korisnik.role == 'Administrator' %}
+
+            <div class="col-md-3 mx-auto" id="dugme-ik">
+                <button class="btn btn-md btn-outline-secondary" type="submit">Izmeni podatke kompanije</button>
+            </div>
+
+            {% else %}
+
+            {% endif %}
+
+        </div>
+</form>
+{% endblock %}

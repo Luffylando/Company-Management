@@ -1,0 +1,35 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Informacije o ugovoru</h4><br>
+    <form action="{{BASE}}pretraga-partnera/izmeni/{{partner.ugovori_id}}" method="post">
+
+        <div class="col-md-11 mx-auto row"><br>
+
+
+                <input type="hidden" name="id" value="{{partner.ugovori_id}}">
+                <div class="col-md-6">
+                    <br><br>
+                    <h5>Naziv kompanije: {{tables.naziv_kompanije}} </h5>
+                    <h5>Vrsta ugovora: {{tables.vrsta_ugovora}} </h5>
+                    <h5>Vrednost ugovora: {{tables.vrednost_ugovora}} </h5>
+                    <h5>Datum sklapanja ugovora: {{tables.datum_sklapanja_ugovora| date("d/m/Y - H:i:s")}} </h5>
+                    <h5>Datum isticanja ugovora: {{tables.datum_isticanja_ugovora| date("d/m/Y - H:i:s")}} </h5>
+                    <h5>Kontakt telefon: {{tables.kontakt_telefon}} </h5>
+                    <h5>Ugovor sklopio: {{tables.ugovor_sklopio}} </h5>
+                </div>
+
+                <div class="col-md-4 float-right row">
+                    <img src="{{tables.logo}}" id="img-logo" alt="img">
+                </div>
+        <!--
+<div class="col-md-5">
+<button type="submit" class="btn btn-md btn-secondary float-right">Izmeni</button>
+</div>
+-->
+        </div>
+</form>
+
+
+{% endblock %}

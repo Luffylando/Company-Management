@@ -1,0 +1,170 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<div class="container col-md-12 mx-auto">
+
+
+    {% if korisnik.role != 'Administrator' and korisnik.role != 'IT menadzer' %}
+
+    
+<h2 class="text-center" style="margin-top:20%;">   
+    Pocetna Strana - &copy; Projekat
+    
+</h2>
+
+{% else %}
+
+    {% if neprihvaceni is not empty %}
+    {% if korisnik.role == 'Administrator' %}
+
+
+<h4 align="center">Zahtevi za pridruzivanje</h4><br>
+<div class="col-md-10 mx-auto">
+<table class="table table-condensed table-striped table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Korisnicko ime</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Email</th>
+        <th>Prihvati ili odbi korisnika</th>
+
+    </thead>
+    <tbody>
+
+        <form action="{{BASE}}razresavanje-zahteva" method="post">
+
+        {% for neprihvacen in neprihvaceni %}
+
+        <tr>
+
+
+            <input type="hidden" value="{{neprihvacen.korisnik_id}}" name="id">
+            <td></td>
+            <td>{{neprihvacen.korisnicko_ime}}</td>
+            <td>{{neprihvacen.ime}}</td>
+            <td>{{neprihvacen.prezime}}</td>
+            <td>{{neprihvacen.email}}</td>
+            <td>
+
+                <button type="submit" value="1" name="prihvati" class="btn btn-sm btn-outline-success">Prihvati korisnika</button>
+                <button type="submit" value="0" name="prihvati" class="btn btn-sm btn-outline-danger">Odbi korisnika</button>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </form>
+    </tbody>
+</table>
+</div>
+{% endif %}
+
+{% else %}
+
+<h5 align="center" style="color:red;"> (Nema novih zahteva za pridruzivanje!)</h5><hr style="width:300px;"><br>
+
+
+{% endif %}
+
+
+<!-- VREMENSKI DIJAGRAM KOJI TREBA DA S EIMPLEMENTIRA 
+<h3 align="center">Vremenski dijagram</h3><br>
+
+<h5 align="center">Ugovori koji isticu u sledecih 6 meseci</h5><br>
+
+{% for ugovor in ugovori %}
+
+<div id="ime-uspravna">{{ugovor.naziv_kompanije }} - {{ugovor.datum_isticanja_ugovora|date("d.m.Y")}}</div>
+<div id="uspravna-linija"></div>
+
+{% endfor %}
+
+<div id="horizontalna-linija"></div>
+
+<div align="center">nedelje u sledecih sest meseci</div><br>
+<div align="center" style="color:red;">Ovu celu stranu ostavljam ovako za sad, treba da se sredi.</div><br>
+
+
+{% for a in 1..25 %}
+<span class="dot"><span id="broj-nedelja">{{a}}</span></span>
+{% endfor %}
+
+-->
+<br><br>
+<div class="col-md-10 mx-auto">
+
+    <h4 align="center" class="mx-auto">Kompanije kojima istice ugovor u sledecih 6 meseci</h4><br>
+<table class="table table-striped table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Ime kompanije</th>
+        <th>Datum sklapanja ugovora</th>
+        <th>Datum isticanja ugovora</th>
+        <th>Ugovor sklopio</th>
+
+    </thead>
+    <tbody>
+
+            {% for ugovor in ugovori %}
+
+
+        <tr>
+            <td></td>
+            <td>{{ugovor.naziv_kompanije }} </td>
+            <td>{{ugovor.datum_sklapanja_ugovora | date("d.m.Y - H:i:s")}} </td>
+            <td>{{ugovor.datum_isticanja_ugovora | date("d.m.Y - H:i:s")}} </td>
+            <td>{{ugovor.ugovor_sklopio }} </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<br><br>
+
+<h4 class="mx-auto" align="center">Kompanije kojima je istekao ugovor u prethodnih 6 meseci</h4><br>
+
+<table class="table table-striped table-bordered">
+        <thead>
+                <th>#</th>
+                <th>Ime kompanije</th>               
+                <th>Datum isticanja ugovora</th>
+                <th>Ugovor sklopio</th>
+                <th>Mail</th>
+
+    
+        </thead>
+        <tbody>
+
+            <form action="{{BASE}}posalji-mail" method="post">
+                {% for istekao in istekli %}
+
+            <tr>
+
+                <input type="hidden" value="{{istekao.email}}" name="email" id="email">
+                    <td></td>
+                    <td>{{istekao.naziv_kompanije }} </td>
+                    <td>{{istekao.datum_isticanja_ugovora | date("d.m.Y - H:i:s") }} </td>
+                    <td>{{istekao.ugovor_sklopio }} </td>
+                    <td><button type="submit" id="href-mail" class="btn btn-sm btn-outline-dark">Posalji mail</button></td>
+        
+            </tr>
+
+            {% endfor %}
+
+        </form>
+
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

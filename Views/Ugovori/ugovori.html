@@ -1,0 +1,83 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+<h4 align="center">Skoro sklopljeni ugovori</h4>
+
+<a href="{{BASE}}dodaj-ugovor" class="btn btn-outline-dark" id="dodaj-ugovor">Sklopi novi ugovor</a>
+
+
+<div class="col-md-11 mx-auto">
+<br>
+<table class="table table-striped table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Naziv kompanije</th>
+        <th>Vrednost ugovora</th>
+        <th>Datum sklapanja ugovora</th>
+        <th>Datum isticanja ugovora</th>
+        <th>Ugovor sklopio</th>
+
+    </thead>
+    <tbody>
+
+        {% for ugovor in poslednjiUgovori %}
+        <tr>
+            <td></td>
+            <td>{{ugovor.naziv_kompanije}}</td>
+            <td>{{ugovor.vrednost_ugovora}} EUR</td>
+            <td>{{ugovor.datum_sklapanja_ugovora|date("d.m.Y | H:i:s")}}</td>
+            <td>{{ugovor.datum_isticanja_ugovora|date("d.m.Y | H:i:s")}}</td>
+            <td>{{ugovor.ugovor_sklopio}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<br><br>
+
+<h4 align="center">Ugovori koji uskoro isticu</h4><hr style="width:300px;"><br><br>
+
+
+<table class="table table-striped table-bordered">
+        <thead>
+            <th>#</th>
+            <th>Naziv kompanije</th>
+            <th>Vrednost Ugovora</th>
+            <th>Datum sklapanja ugovora</th>
+            <th>Datum isticanja ugovora</th>
+            <th>Ugovor sklopio</th>
+
+        </thead>
+        <tbody>
+    
+           
+            {% for ugovor in ugovori %}
+
+            {% if ugovor.ugovor_sklopio == korisnik.korisnicko_ime %}
+             
+            <tr style="color:red;">
+                    {% else %}
+            <tr>
+                    {% endif %}
+
+                <td></td>
+                <td>{{ugovor.naziv_kompanije}}</td>
+                <td>{{ugovor.cena_ugovora}} EUR</td>
+                <td>{{ugovor.datum_sklapanja_ugovora|date("d.m.Y | H:i:s")}}</td>
+                <td>{{ugovor.datum_isticanja_ugovora|date("d.m.Y | H:i:s")}}</td>
+                <td>{{ugovor.ugovor_sklopio}}</td>
+
+             
+            </tr>
+
+            {% endfor %}
+    
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+<form action="{{BASE}}dodaj-korisnika" method="post">
+
+    <h4 align="center">Dodaj korisnika</h4><br>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="kor" class="col-md-4">Korisnicko ime</label>
+            <input type="text" class="col-md-7" name="kor" id="kor">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="lozinka" class="col-md-4">Lozinka</label>
+            <input type="password" class="col-md-7" name="lozinka" id="lozinka">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="imee" class="col-md-4">Ime</label>
+            <input type="text" class="col-md-7" name="imee" id="imee">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="prezime" class="col-md-4">Prezime</label>
+            <input type="text" class="col-md-7" name="prezime" id="prezime">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="datum" class="col-md-4">Datum rodjenja</label>
+            <input type="date" class="col-md-7" name="datum" id="datum">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="mob" class="col-md-4">Mobilni</label>
+            <input type="text" class="col-md-7" name="mob" id="mob">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="email" class="col-md-4">Email</label>
+            <input type="email" class="col-md-7" name="email" id="email">    
+        </div>
+
+        <div class="form-group col-md-6 mx-auto">
+            <label for="uloga" class="col-md-4">Uloga</label>
+            <select name="uloga" id="uloga">
+
+                <option></option>
+                <option value="Gost">Gost</option>
+                <option value="Clan tima">Clan Tima</option>
+                <option value="IT menadzer">IT menadzer</option>
+                <option value="Administrator">Administrator</option>
+            </select>  
+        </div>
+
+        <div class="col-md-9">
+            <button type="submit" class="btn btn-sm btn-outline-dark float-right">Dodaj korisnika</button>
+        </div>
+</form> 
+
+{% endblock %}

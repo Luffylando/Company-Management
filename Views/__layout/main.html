@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Php-Projekat</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="{{ BASE }}Assets/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="{{ BASE }}Assets/css/main.css">
+        <script src="{{BASE}}Assets/js/jQuery.js"></script>
+
+        
+        <script>
+       
+        </script>
+<script src="{{BASE}}Assets/js/oglasi.js">
+
+</script>
+    </head>
+
+    <body>
+        <div class="container col-md-10 col-sm-10 col-lg-10">
+            <nav class="navbar navbar-expand-lg col-md-12">     
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <a href="{{BASE}}"><img src="{{BASE}}Assets/img/konoha.png" id="logo" alt="rand"></a>
+               
+                        <form class="form-inline" id="search-form" method="post" action="{{BASE}}pretraga-kompanija">
+                                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Unesi naziv kompanije" aria-label="Search">
+                                <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Pretrazi</button>
+                        </form>
+                        <a class="navbar-brand"  href="{{BASE}}paketi">Paketi</a>
+                        <a class="navbar-brand"  href="{{BASE}}oglasi">Oglasi</a>
+                        <a class="navbar-brand"  href="{{BASE}}predavanja">Predavanja</a>
+
+                   
+      
+                    {% if (korisnik.role == 'Clan tima' or korisnik.role == 'Administrator'
+                           or korisnik.role == 'IT menadzer') %}
+
+                         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent" style="display: flex;">
+                           <ul class="navbar-nav">                 
+                             <li class="nav-item dropdown">   
+                              
+                                    <a class="nav-link dropdown-toggle active float-right" href="" id="dropdown-nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Ugovori
+                                    </a>                                                                                  
+                               <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="{{BASE}}ugovori">Ugovori</a>
+                                 <a class="dropdown-item"  href="{{BASE}}pretraga-partnera">Pretrazi Ugovore</a>
+                             </li>
+                           </ul>
+                         </div>  
+
+                         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent" style="display: flex;">
+                            <ul class="navbar-nav">                 
+                              <li class="nav-item dropdown">   
+                                     <a class="nav-link dropdown-toggle active float-right" href="" id="dropdown-nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dodaj
+                                     </a>                                                                                  
+                                <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  href="{{BASE}}dodaj-kompaniju">Dodaj Kompaniju</a>
+                                    {% if korisnik.role == 'Administrator' %}                                            
+         
+                                    <a class="dropdown-item"  href="{{BASE}}dodaj-korisnika">Dodaj Korisnika</a>
+                                
+                                     {% endif %}
+                                    
+                              </li>
+                            </ul>
+                          </div>  
+
+                       {% endif %}
+                              
+                    {% if korisnik.korisnicko_ime == '' %}
+
+                        </div>
+
+                        <div class="float-right">
+
+                        <a class="navbar-brand"  href="{{BASE}}auth\login">Logovanje</a>
+                        <a class="navbar-brand"  href="{{BASE}}auth\register">Registracija</a>
+                        </div>
+                    
+
+                    {% else %}
+
+                    </div>
+               <div class="float-right">
+                    <!-- Logout - dropdown manu -->
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent" style="display: flex;">
+                           <ul class="navbar-nav">                 
+                             <li class="nav-item dropdown">   
+                              
+                                    <a class="nav-link dropdown-toggle active float-right" href="" id="dropdown-nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Zdravo {{korisnik.korisnicko_ime}}
+                                    </a>                                                                                  
+                               <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" id="for-pass" href="{{BASE}}auth/password">Promeni sifru</a>
+                                 <div class="dropdown-divider"></div>
+                                 <a class="dropdown-item" id="logout-icon" href="{{BASE}}auth\logout">Izloguj se</a>
+                               </div>
+                             </li>
+                           </ul>
+                         </div>  
+                        </div>
+                                    
+                       {% endif %}
+                    </div>   
+             
+                </div>                         
+            </nav>
+
+            <div class="col-md-10 mx-auto">
+            <hr>
+
+            <main>
+                {% block main %}
+                {% endblock %}
+            </main>                 
+
+    <div class="container">
+    <br>
+        <footer class="mx-auto">
+            &copy; Projekat - 2018
+        </footer>
+
+    <script src="{{BASE}}Assets/js/bootstrap.min.js"></script>
+    
+
+    </div>
+</div>
+    </body>
+</html>

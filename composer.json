@@ -1,0 +1,13 @@
+{
+    "name": "auguste/projekat",
+    "type": "project",
+    "require": {
+        "twig/twig": "^2.5",
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Projekat\\" : ""
+        }
+    }
+}

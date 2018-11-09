@@ -1,0 +1,46 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+
+<div class="container">
+<h4 align="center">Produzenje partnerske saradnje sa ETF</h4><br>
+
+        <form action="{{BASE}}posalji-mail-post" method="post">
+
+                <div class="form-group col-md-6 mx-auto">
+                <label for="" class="col-md-3">To</label>
+                <input type="text" class="col-md-8" disabled="disabled" value="{{ mailTo }}">
+                </div>
+
+                <input type="hidden" value="{{ mailTo }}" name="to" id="to">
+                <input type="hidden" value="{{ mailFrom }}" name="from" id="from">
+                <input type="hidden" value="Produzenje partnerske saradnje sa ETF" name="sub" id="sub">
+
+
+
+
+                <div class="form-group col-md-6 mx-auto">
+                        <label for="" class="col-md-3">From</label>
+                        <input type="text" class="col-md-8" disabled="disabled" value="{{ mailFrom }}">
+                </div>
+
+                <div class="form-group col-md-6 mx-auto">
+                        <label for="" class="col-md-3">Subject</label>
+                        <input type="text" class="col-md-8" disabled="disabled" placeholder="Produzenje partnerske saradnje sa ETF" value="Produzenje partnerske saradnje sa ETF">
+                </div>
+
+                <div class="form-group col-md-6 mx-auto">
+                        <label for="body" class="col-md-3" id="b-label">Body</label>
+                </div>
+                <div class="form-group col-md-6 mx-auto">
+                        <label class="col-md-3"></label>
+                        <textarea name="body" class="col-md-8" id="body" cols="15" rows="8"></textarea>
+                </div>
+                <div class="col-md-9">
+                <button class="btn btn-sm btn-outline-dark float-right">Posalji mail!</button>
+                </div>
+        </form>
+</div>
+
+{% endblock %}

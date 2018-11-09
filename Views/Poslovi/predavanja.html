@@ -1,0 +1,71 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+
+<div class="col-md-12 mx-auto">
+    <h4 align="center">Nadolazeca predavanja</h4>
+
+    {% if sesija != '' %}
+    <div class="col-md-11">
+
+        <a href="{{BASE}}dodaj-predavanje" class="btn btn-outline-dark float-right">
+                Dodaj predavanje
+        </a>
+    </div>
+        {% endif %}
+
+      <br>
+
+    <div id="predavanja-show">
+    <div class="col-md-12 row">
+   
+
+
+    {% for predavanje in predavanja2 %}
+
+
+    <div class="card" id="card-poslovi">
+    <form action="{{BASE}}predavanja/{{predavanje.predavanja_id}}" method="post">
+
+    <input type="hidden" value="{{predavanje.predavanja_id}}" name="id">
+
+
+        <div class="card-header">
+            <h5>{{predavanje.naziv_kompanije}}</h5>   
+        </div>
+        <div class="card-body" id="card-body">
+            Naziv predavanja: {{predavanje.naziv_predavanja}} <br>
+            Datum i vreme predavanja: {{predavanje.datum_predavanja|date("d/m/Y - H:i:s")}}
+        </div>
+            <button type="submit" id="dugme-promeni" class="float-right">Pogledaj detaljnije >>></button>
+    </form>
+
+    </div>
+  <br>
+    {% endfor %}
+
+
+    </div>
+</div>
+
+<div class="col-md-11"><br>
+    <button class="btn btn-md btn-outline-dark float-right" id="predavanja-button">Ucitaj jos</button>
+</div>
+</div>
+<script>
+
+var limitCount = 2;
+$("#predavanja-button").click(function(){
+limitCount = limitCount + 2;
+$("#predavanja-show").load("{{BASE}}predavanja-ajax", {
+    commentsNewCount: limitCount
+  });
+});
+
+
+</script>
+
+
+{% endblock %}

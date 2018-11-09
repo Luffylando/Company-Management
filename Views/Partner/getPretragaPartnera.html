@@ -1,0 +1,49 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+
+<h4 align="center">Pretrazi partnere</h4><br>
+
+    <div class="col-md-6 mx-auto">
+
+        <form action="" method="post">
+
+            <div class="form-group">
+                <label for="" class="col-md-5">Naziv kompanije</label>
+                <input type="text" name="naziv_kompanije">
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-5">Vrsta ugovora</label>
+                <select name="vrsta" id="vrsta">
+
+                    <option value=""></option>
+                    <option value="Zlatni">Zlatni</option>
+                    <option value="Srebrni">Srebrni</option>
+                    <option value="Bronzani">Bronzani</option>
+                    <option value="Ostalo">Ostalo</option>
+
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-5">Vrsta aktivnosti:</label>
+                <input type="radio" name="activity" value="1">Aktivan
+                <input type="radio" name="activity" value="0">Neaktivan
+
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-md btn-secondary float-right" style="margin-right:70px;">Pretrazi</button>
+            </div><br><br>
+
+        </form>
+    </div>
+
+
+
+
+
+{% endblock %}

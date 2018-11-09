@@ -1,0 +1,64 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Izmeni podatke ugovora</h4><br>
+
+
+
+<form action="{{BASE}}izmeni-partnera" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="id" value="{{tables.ugovori_id}}">
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="naziv" class="col-md-4">Naziv kompanije</label>
+                    <input type="text" class="col-md-7" value="{{tables.naziv_kompanije}}" name="naziv" id="naziv">
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="paket" class="col-md-4">Vrsta ugovora</label>
+                    <select name="paket" id="paket">
+
+                        <option value="Zlatni">Zlatni</option>
+                        <option value="Srebrni">Srebrni</option>
+                        <option value="Bronzani">Bronzani</option>
+                        <option value="Donatorski">Donatorski</option>
+
+
+                    </select>
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="cena" class="col-md-4">Cena ugovora</label>
+                    <input type="text" class="col-md-7" value="{{tables.vrednost_ugovora}}" name="cena" id="cena">
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="datum_sklapanja" class="col-md-4">Datum sklapanja ugovora</label>
+                    <input type="text" class="col-md-7" value="{{tables.datum_sklapanja_ugovora}}" name="datum_sklapanja" id="datum_sklapanja">
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="datum_isticanja" class="col-md-4">Datum isticanja ugovora</label>
+                    <input type="text" class="col-md-7" value="{{tables.datum_isticanja_ugovora}}" name="datum_isticanja" id="datum_isticanja">
+                   
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="ugovor_sklopio" class="col-md-4">Ugovor sklopio</label>
+                    <input type="text" class="col-md-7" value="{{tables.ugovor_sklopio}}" name="ugovor_sklopio" id="ugovor_sklopio">
+                   
+            </div>
+
+
+            <div class="col-md-8">
+                    <button type="submit" class="btn btn-md btn-secondary float-right">Potvrdi izmenu</button>
+
+
+            </div>
+
+        </form>
+
+
+
+{% endblock %}

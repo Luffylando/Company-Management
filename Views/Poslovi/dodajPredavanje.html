@@ -1,0 +1,73 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Dodaj predavanje</h4><br>
+
+<form action="{{BASE}}dodaj-predavanje" method="post">
+
+           <div class="form-group col-md-6 mx-auto row">
+                  <label for="predavanje" class="col-md-4">Naziv predavanja</label>
+                  <input type="text" class="col-md-7" name="predavanje" id="predavanje">
+          </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="naziv" class="col-md-4">Naziv kompanije</label>
+                    <select name="naziv" id="naziv">
+
+                        <option value=""></option>
+
+                        {% for kompanija in kompanije %}
+                        <option value="{{ kompanija.naziv_kompanije }}">{{ kompanija.naziv_kompanije }}</option>
+
+                        {% endfor %}
+
+
+                    </select>
+                   
+            </div>
+            
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="opis" class="col-md-4">Opis predavanja</label>
+                    <textarea name="opis" id="opis" class="col-md-7" cols="30" rows="5"></textarea>
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="datum" class="col-md-4">Datum predavanja</label>
+                    <input type="text" class="col-md-7" name="datum" id="datum" placeholder="(Primer: 2018-12-25 12:00:00)">
+                   
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="sala" class="col-md-4">Broj sale</label>
+                    <input type="text" class="col-md-7" name="sala" id="sala">
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="imee" class="col-md-4">Ime predavaca</label>
+                    <input type="text" class="col-md-7" name="imee" id="imee">
+                   
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="prezime" class="col-md-4">Prezime predavaca</label>
+                    <input type="text" class="col-md-7" name="prezime" id="prezime">
+                   
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="biografija" class="col-md-4">Biografija predavaca</label>
+                    <textarea name="biografija" class="col-md-7" id="biografija" cols="30" rows="5"></textarea>
+                   
+            </div>
+
+            <div class="col-md-8">
+                    <button type="submit" class="btn btn-md btn-secondary float-right">Dodaj predavanje</button>
+            </div>
+
+        </form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Pretrazi Kompaniju</h4><br><br>
+
+
+        <div class="col-md-5 mx-auto">
+                        
+                <button class="btn btn-outline-secondary float-right" type="submit">Pretraga</button>
+                <input class="mr-sm-2 form-control col-md-7 float-right" type="search" placeholder="Ime Kompanije" aria-label="Search">
+
+        </div><br>
+
+        <ul id="li-paketi">
+                <h5>Pretrazi Kompanije po paketu</h5><hr id="hr-komp">
+
+                <div class="container" id="li-container">
+                        {% for paket in paketi %}
+                        {% set counter = ( counter | default(0) ) + 1 %}
+                        
+                                <li><a id="naziv-paketa-boja" href="{{BASE}}paket/{{paket.naziv_paketa|lower}}">{{counter}}. {{paket.naziv_paketa}}</a>
+                
+                        {% endfor %}
+                </div>
+        </ul>
+
+
+{% endblock %}

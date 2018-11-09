@@ -1,0 +1,116 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+<h4 align="center">Sklopi novi ugovor</h4><br>
+
+<form action="{{BASE}}dodaj-ugovor" method="post">
+
+        <input type="hidden" name="id" value="{{partner.ugovori_id}}">
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="naziv" class="col-md-4">Naziv kompanije</label>
+                    <select name="naziv" id="naziv">
+                           <option value=""></option>
+
+                           {% for kompanija in kompanije %}
+
+                               <option value="{{kompanija.naziv_kompanije}}">{{kompanija.naziv_kompanije}}</option>
+
+                           {% endfor %}
+                   </select>
+                   
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="paket" class="col-md-4">Vrsta ugovora</label>
+                        <select name="paket" id="paket">
+
+                                <option value=""></option>
+
+                                <option value="Novcani">Novcani</option>
+                                <option value="Donatorski">Donatorski</option>
+                                <option value="Drugo">Drugo</option>
+
+                        </select>
+                             
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="naziv_paketa" class="col-md-4">Naziv paketa</label>
+
+                <select name="naziv_paketa" id="naziv_paketa">
+
+                        <option value=""></option>
+                        {% for paket in paketi %}
+                        <option value="{{paket.naziv_paketa}}">{{ paket.naziv_paketa }}</option>
+
+                        {% endfor %}
+                
+                </select>       
+               
+                 </div>
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="cena" class="col-md-4">Vrednost ugovora</label>
+                    <input type="text" name="cena" id="cena">
+                   
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="email" class="col-md-4">Email kompanije:</label>
+                <input type="text" name="email" id="email">
+               
+        </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                    <label for="trajanje" class="col-md-4">Duzina trajanja ugovora(u god)</label>
+                    <select name="trajanje" id="trajanje">
+                        <option value=""></option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+
+
+
+                    </select>
+                   
+            </div>
+
+
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="status" class="col-md-4">Status ugovora</label>
+                <select name="status" id="status">
+
+
+                        <option value=""></option>
+
+                        <option value="pripremljen">pripremljen</option>
+                        <option value="poslat kompaniji">poslat kompaniji</option>
+                        <option value="potpisan od strane fakulteta">potpisan od strane fakulteta</option>
+                        <option value="potpisan od strane kompanije">potpisan od strane kompanije</option>
+                        <option value="potpisan sa obe strane">potpisan sa obe strane</option>
+                        <option value="predat arhivi">predat arhivi</option>
+
+
+
+                </select>
+               
+           </div>
+
+           <div class="form-group col-md-6 mx-auto row">
+                        <label for="link" class="col-md-4">Link Kompanije</label>
+                        <input type="text" name="link" id="link">
+                       
+                </div>
+            <div class="col-md-8">
+                    <button type="submit" class="btn btn-md btn-secondary float-right">Sklopi ugovor!</button>
+            </div>
+
+        </form>
+
+
+
+
+{% endblock %}

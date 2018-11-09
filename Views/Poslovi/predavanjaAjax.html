@@ -1,0 +1,29 @@
+
+<div class="col-md-12 row">
+
+        {% for predavanje in predavanja %}
+        
+
+        <div class="card" id="card-poslovi">
+                <form action="{{BASE}}predavanja/{{predavanje.predavanja_id}}" method="post">
+            
+                <input type="hidden" value="{{predavanje.predavanja_id}}" name="id">
+            
+            
+                    <div class="card-header">
+                        <h5>{{predavanje.naziv_kompanije}}</h5>   
+                   </div>
+                   <div class="card-body" id="card-body">
+                        Naziv predavanja: {{predavanje.naziv_predavanja}} <br>
+                        Datum i vreme predavanja: {{predavanje.datum_predavanja|date("d/m/Y - H:i:s")}} <br>
+                   </div>
+                   <div class="card-footer" id="card-f">  
+                        <button type="submit" id="dugme-promeni" class="float-right">Pogledaj detaljnije >>></button>
+                  </div>
+                </form>
+            
+                </div>
+                
+            {% endfor %}
+        </div>
+        

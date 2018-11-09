@@ -1,0 +1,37 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+<h4 align="center">Rezultat pretrage kompanija</h4>
+
+    <div class="container col-md-10 mx-auto">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th></th>
+                <th>Naziv kompanije</th>
+                <th>Grad</th>
+                <th>Zemlja</th>
+                <th>Kontakt</th>
+                <th>Link</th>
+
+            </thead>
+            <tbody>
+
+                {% for kompanija in search %}
+                <tr>
+
+                    <td></td>
+                    <td><a href="{{BASE}}pretraga-kompanija/{{kompanija.kompanija_id}}">{{kompanija.naziv_kompanije}}</a></td>
+                    <td>{{kompanija.grad}}</td>
+                    <td>{{kompanija.zemlja}}</td>
+                    <td>{{kompanija.kontakt_telefon}}</td>
+                    <td><a href="{{kompanija.link_kompanije}}">{{kompanija.link_kompanije}}</a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

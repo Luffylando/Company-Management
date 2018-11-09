@@ -1,0 +1,43 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+
+<h4 align="center">Dodaj oglas</h4><br>
+
+<form action="{{BASE}}dodaj-oglas" method="post">
+
+<div class="col-md-10 mx-auto">
+    <div class="container">
+
+        <div class="form-group row">
+            <label for="" class="col-md-3">Naziv posla</label>
+            <input type="text" name="naziv" class="form-control col-md-6">
+        </div>
+
+        <div class="form-group row">
+             <label for="" class="col-md-3">Naziv kompanije</label>
+            <select name="kompanija" id="">
+                <option value=""></option>
+
+                {% for kompanija in kompanije %}
+                <option value="{{kompanija.naziv_kompanije}}">{{kompanija.naziv_kompanije}}</option>
+
+                {% endfor %}
+
+            </select>
+        </div>
+
+        <div class="form-group row">
+            <label for="" class="col-md-3">Opis posla</label>
+            <textarea name="opis" id="opis" class="form-control col-md-6" rows="5"></textarea>
+        </div>
+
+        <div class="form-group col-md-9">
+            <button class="btn btn-outline-secondary float-right">Dodaj oglas</button>
+        </div>
+
+    </div>
+</div>
+</form>
+{% endblock %}

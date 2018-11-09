@@ -1,0 +1,57 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+<div class="col-md-10 mx-auto">
+   
+
+    <h4 align="center">Najnoviji oglasi</h4>
+
+    {% if sesija != '' %}
+        <div class="col-md-11">
+          <a href="{{BASE}}dodaj-oglas" class="btn btn-outline-dark float-right">Dodaj oglas</a><br>
+         </div>
+
+         {% endif %}
+
+    <div id="show">
+        <div class="col-md-12 row">
+
+        {% for posao in poslovi %}
+
+       
+            <div class="card" id="card-poslovi">
+                <div class="card-header">
+                    <h5>{{posao.naziv_kompanije}}</h5>   
+                </div>
+                 <div class="card-body">
+                Naziv posla: {{posao.naziv_posla}} <br>
+                Opis posla: {{posao.opis_posla}} <br>
+                </div>
+            </div>
+    
+        {% endfor %}
+
+        </div>
+
+</div><br>
+<div class="col-md-11">
+    <button type="button" class="btn btn-outline-dark float-right" id="ajax-button">Ucitaj jos</button>
+</div>
+</div>
+
+<script>
+var limitCount = 2;
+$("#ajax-button").click(function(){
+limitCount = limitCount + 2;
+$("#show").load("{{BASE}}get-ajax", {
+    commentsNewCount: limitCount
+  });
+});
+</script>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+
+
+<form action="{{BASE}}auth/register" method="post">
+    <div class="col-md-10 mx-auto">
+        <div class="card mx-auto" id="reg-card">
+            <div class="card-header">
+                Registracija
+            </div>
+            <div class="card-body mx-auto">
+
+                <div class="form-group row">
+                    <label for="korisnicko_ime" class="col-md-5">Korisnicko Ime</label>
+                    <input type="text" class="col-md-7" name="korisnicko_ime" pattern="[A-Za-z0-9]{4,40}" id="korisnicko_ime">
+                </div>
+
+                <div class="form-group row">
+                        <label for="lozinka" class="col-md-5">Lozinka</label>
+                        <input type="password" class="col-md-7" pattern="[A-Za-z0-9]{6,40}" name="lozinka" id="lozinka">
+                </div>
+                <div class="form-group row">
+                        <label for="ime" class="col-md-5">Ime</label>
+                        <input type="text" class="col-md-7" pattern="[A-Z][a-z]{1,40}" name="imee" id="imee">
+                </div>
+
+                <div class="form-group row">
+                        <label for="prezime" class="col-md-5">Prezime</label>
+                        <input type="text" class="col-md-7" pattern="[A-Z][a-z]{1,40}" name="prezime" id="prezime">
+                </div>  
+                <div class="form-group row">
+                        <label for="datum" class="col-md-5">Datum Rodjenja</label>
+                        <input type="date" class="col-md-7 form-control" pattern="[A-Z][a-z]{1,40}" name="datum" id="datum">
+                </div>   
+                <div class="form-group row">
+                        <label for="mobilni" class="col-md-5">Mobilni</label>
+                        <input type="text" class="col-md-7" pattern="(060|064|061|062|063|065|066|069)\/\d{6,7}" name="mobilni" id="mobilni">
+                </div>    
+                <div class="form-group row">
+                        <label for="email" class="col-md-5">Email</label>
+                        <input type="text" class="col-md-7" pattern="[A-Za-z0-9.][a-z0-9.]+@[a-z]+\.[a-z]+$" name="email" id="email">
+                </div>  
+
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-outline-secondary float-right">Registruj se</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}

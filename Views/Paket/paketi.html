@@ -1,0 +1,53 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+
+
+<div class="col-md-10 mx-auto">
+    <h4 align="center">Tabela Akutelnih Paketa</h4>
+
+    {% if sesija != '' %}
+    <a href="{{BASE}}dodaj-paket" class="btn btn-outline-dark float-right">Dodaj paket</a>
+    {% endif %}
+
+    <br><br><br>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <th>#</th>
+                <th>Naziv paketa</th>
+                <th>Vrednost paketa po godini</th>
+                <th>Opis paketa</th>
+                <th>Izmeni podatke</th>
+            </thead>
+            <tbody>
+
+                {% for paket in paketi %}
+                <tr id="tr-paketi">
+                    <form action="{{BASE}}izmeni-paket/{{paket.paket_id}}" method="post">
+
+                        <td id="td-p"></td>
+                        <td>{{paket.naziv_paketa}}</td>
+                        <td>{{paket.vrednost_paketa}} EUR</td>
+                        <td>{{paket.opis_stavki_paketa}}</td>
+
+                        <input type="hidden" name="id" value="{{paket.paket_id}}">
+                        <input type="hidden" name="naziv" value="{{paket.naziv_paketa}}">
+                        <input type="hidden" name="vrsta" value="{{paket.vrsta_paketa}}">
+                        <input type="hidden" name="vrednost" value="{{paket.vrednost_paketa}}">
+                        <input type="hidden" name="opis" value="{{paket.opis_stavki_paketa}}">
+                
+
+                        <td>
+
+                            <button type="submit" class="btn btn-sm btn-secondary">Izmeni Paket</button>
+                            <a href="{{BASE}}deletePaket/{{paket.paket_id}}" class="btn btn-sm btn-secondary">Delete</a>
+                        </td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

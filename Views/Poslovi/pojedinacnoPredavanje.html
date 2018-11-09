@@ -1,0 +1,25 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+
+<div class="col-md-6 mx-auto">
+
+    <h4 align="center">Predavanje</h4><br>
+   
+  
+    <h4 style="text-decoration: underline;">Naziv predavanja: {{predavanje.naziv_predavanja}}</h4>
+    <h4>Naziv kompanije: {{predavanje.naziv_kompanije}}</h4>
+    <h5>Datum predavanja: {{predavanje.datum_predavanja| date("d/m/Y - H:i:s")}}</h5>
+    <h5>Opis predavanja: {{predavanje.opis_predavanja}}</h5>
+    <h5>Ime i prezime predavaca: {{predavanje.ime}} {{predavanje.prezime}}</h5>
+    <h5>Broj sale: {{predavanje.broj_sale}}</h5>
+    <h5>Biografija: {{predavanje.biografija}}</h5>
+
+
+
+
+</div>
+
+{% endblock %}

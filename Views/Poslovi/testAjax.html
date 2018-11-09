@@ -1,0 +1,17 @@
+
+<div class="col-md-12 row">
+
+{% for posao in poslovi %}
+
+<div class="card" id="card-poslovi">
+        <div class="card-header">
+            <h5>{{posao.naziv_kompanije}}</h5>   
+       </div>
+       <div class="card-body">
+            Naziv posla: {{posao.naziv_posla}} <br>
+            Opis posla: {{posao.opis_posla}} <br>
+      </div>
+    </div>
+
+    {% endfor %}
+</div>

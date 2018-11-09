@@ -1,0 +1,66 @@
+{% extends '__layout/main.html' %}
+
+{% block main %}
+
+
+<h4 align="center">Izmeni Kompaniju</h4><br><br>
+    <form action="{{BASE}}postIzmeniKompaniju/{{kompanija.kompanija_id}}" method="post" enctype="multipart/form-data">
+        <div class="col-md-6 mx-auto">
+
+
+            <input type="hidden" name="id" value="{{kompanija.kompanija_id}}">
+
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Naziv</label>
+                    <input type="text" class="form-control col-md-8" readonly name="naziv" value="{{kompanija.naziv_kompanije}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Grad</label>
+                    <input type="text" class="form-control col-md-8" name="grad" value="{{kompanija.grad}}">
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Postanski Broj</label>
+                    <input type="text" class="form-control col-md-8" name="posta" value="{{kompanija.postanski_broj}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Zemlja</label>
+                    <input type="text" class="form-control col-md-8" name="zemlja" value="{{kompanija.zemlja}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Ziro racun</label>
+                    <input type="text" class="form-control col-md-8" name="ziro" value="{{kompanija.ziro_racun}}">
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Kontakt telefon</label>
+                    <input type="text" class="form-control col-md-8" name="telefon" value="{{kompanija.kontakt_telefon}}">
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Link kompanije</label>
+                    <input type="text" class="form-control col-md-8" name="link" value="{{kompanija.link_kompanije}}">
+                </div>
+
+                <div class="form-group row">
+                        <label for="kontakt" class="col-md-3">Kontakt Osoba</label>
+                    <textarea name="kontakt" id="kontakt" class="form-control col-md-8" rows="5">{{kompanija.kontakt_osoba}}</textarea>
+                </div>
+
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Logo</label>
+                    <input type="file" class="col-md-8" name="logo">
+                </div>
+
+        <div class="col-md-6 mr-auto"><br>
+            <img src="{{kompanija.logo}}" id="izmeni-slika" alt="logo">
+            <input type="hidden" name="stariLogo" value="{{kompanija.logo}}">
+
+        </div>
+
+            <button type="submit" class="btn btn-md btn-danger float-right">Izmeni podatke</button>
+        </div>
+
+    </form>
+
+{% endblock %}

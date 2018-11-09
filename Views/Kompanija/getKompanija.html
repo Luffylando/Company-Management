@@ -1,0 +1,74 @@
+{% extends '__layout/main.html' %}
+
+
+{% block main %}
+
+<h4 align="center">Dodaj kompaniju</h4><br>
+
+    <div class="container">
+
+        <form action="" method="post" enctype="multipart/form-data">
+
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="naziv_kompanije" class="col-md-4">Naziv Kompanije</label>
+                <input type="text" class="col-md-7" name="naziv_kompanije" id="korisninaziv_kompanijecko_ime">
+            
+            </div>
+
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="grad" class="col-md-4">Grad</label>
+                <input type="text" class="col-md-7" name="grad" id="grad">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="zip" class="col-md-4">Postanski Broj</label>
+                <input type="text" class="col-md-7" name="zip" id="zip">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="zemlja" class="col-md-4">Zemlja</label>
+                <input type="text" class="col-md-7" name="zemlja" id="zemlja">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="ziro" class="col-md-4">Ziro Racun</label>
+                <input type="text" class="col-md-7" name="ziro" id="ziro">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="pib" class="col-md-4">Poreski identifikacioni broj(PIB)</label>
+                <input type="text" class="col-md-7" name="pib" id="pib">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="telefon" class="col-md-4">Kontakt Telefon</label>
+                <input type="text" class="col-md-7" name="telefon" id="telefon">
+            
+            </div>
+            
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="kontakt" class="col-md-4">Kontakt</label>
+                <textarea name="kontakt" id="kontakt" class="form-control col-md-7" rows="5"></textarea>
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="link" class="col-md-4">Link kompanije</label>
+                <input type="text" name="link" id="link">
+            
+            </div>
+            <div class="form-group col-md-6 mx-auto row">
+                <label for="logo" class="col-md-4">Logo</label>
+                <input type="file" name="logo">
+            
+            </div>
+
+            <div class="form-group col-md-8">
+            
+            <button type="submit" class="btn btn-outline-secondary float-right">Dodaj</button>
+            
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

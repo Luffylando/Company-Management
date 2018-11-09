@@ -1,0 +1,50 @@
+{% extends '__layout/main.html' %}
+
+
+
+{% block main %}
+
+<h4 align="center">Dodaj Paket</h4><br>
+<form action="{{BASE}}dodaj-paket" method="post">
+
+    <div class='form-group col-md-6 mx-auto'>
+        <label for="vrsta" class="col-md-4">Vrsta paketa</label>
+        <input type="text" name="vrsta" id="vrsta" class="col-md-7">
+    </div>
+
+    <div class='form-group col-md-6 mx-auto'>
+         <label for="naziv" class="col-md-4">Naziv paketa</label>
+         <input type="text" name="naziv" id="naziv" class="col-md-7">
+    </div>
+
+     <div class='form-group col-md-6 mx-auto'>
+        <label for="vrednost" class="col-md-4">Vrednost paketa</label>
+        <input type="text" name="vrednost" id="vrednost" class="col-md-7">
+     </div>
+
+     <div class='form-group col-md-6 mx-auto'>
+         <label for="trajanje" class="col-md-4">Trajanje paketa u godinama</label>
+         <input type="text" name="trajanje" id="trajanje" class="col-md-7">
+     </div>
+     <div class='form-group col-md-6 mx-auto'>
+            <label for="max" class="col-md-4">Max broj paketa u jednog god</label>
+            <input type="text" name="max" id="max" class="col-md-7">
+     </div>
+
+    <div class="form-group col-md-6 mx-auto row">
+             <label for="opis" class="col-md-4">Opis stavki paketa</label>
+            <textarea name="opis" id="opis" class="col-md-7" cols="30" rows="5"></textarea>
+     </div>
+
+     <div class="col-md-9">
+         <button type="submit" class="btn btn-sm btn-outline-dark float-right">Dodaj paket</button>
+     </div>
+
+</form>
+
+
+
+
+
+
+{% endblock %}
