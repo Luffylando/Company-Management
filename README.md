@@ -2,7 +2,7 @@
 
 Ovo je test aplikacija za upravljanje Kompanijom.
 Glavne karakteristike: sklapanje paketa sa kompanijama,
-pruzanje beneficija u zavisnosti od ponude, CRUD system za oglase, predavanja, korisnike, kompanije
+pruzanje beneficija u zavisnosti od ponude, CRUD sistem za oglase, predavanja, korisnike, kompanije
 ugovore, i drugo.
 PHPMailer za automatsko kontaktiranje.
 ACL na nivou aplikacije.
